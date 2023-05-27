@@ -1,0 +1,95 @@
+\documentclass[14pt,twocolumn,letterpaper]{extarticle}
+
+
+\setlength{\textheight}{9.075in}
+\setlength{\textwidth}{6.875in}
+\setlength{\columnsep}{0.3125in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\parindent}{1pc}
+\setlength{\oddsidemargin}{-.304in}
+\setlength{\evensidemargin}{-.304in}
+
+\usepackage{titlesec}
+\usepackage{graphicx}
+
+% set section font size to 14pt
+\titleformat{\section}{\fontsize{18}{20}\selectfont\bfseries}{\thesection}{1em}{}
+
+% set subsection font size to 12pt
+\titleformat{\subsection}{\fontsize{14}{16}\selectfont\bfseries}{\thesubsection}{1em}{}
+
+
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{courier}
+\usepackage{multirow}
+\usepackage[svgnames]{xcolor}
+\usepackage{tabularx}
+\usepackage{booktabs,chemformula}
+\usepackage{float}
+
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\setcounter{page}{1}
+\begin{document}
+
+\title{Optimization for Deep Learning Final Project: \\
+A study on autodiff in PyTorch}
+\author{b09902033 Hsiu-Hsuan Wang\; b09902040 Yu-Kai Hong}
+\date{}
+\maketitle
+
+\section{Abstract}
+
+We measure the different runtime of the gradient flowing backwards in PyTorch and Tensorflow and give practical suggestions under different scenario. Tensorflow implements static computation graph, which allow its model to be compiled and optimized to run faster. PyTorch library does not explicitly implement the tape, but dynamically generate the computation graph, which allow more flexible and dynamic model structure (e.g.\ sequence-to-sequence model).
+
+\section{Problem Definition}
+
+After the forward pass, models would build a computation graph to store each operation and variable. Then the model is updated by the gradient of loss function. The gradient of the last layer output is computed and flow backward to update all the parameters.
+
+In this report, we assume that all the parameters are trainable. Therefore, the time of one back propagation is equal to the computing time for a whole Jacobian matrix with regard to the loss function and model parameters.
+
+\paragraph*{Hypothesis 0}
+does the above interpretation true?
+
+\paragraph*{Hypothesis 1}
+The backward flow of Tensorflow should be faster than PyTorch since the models in Tensorflow are compiled before running.
+
+Next, we measure the running time of several famous basic models including self-attention layer, convolution layer, fully-connected layer with cross-entropy loss and ctc-loss
+
+\section{Experiments}
+
+\subsection*{Compute the Jacobian of Dense Layer}
+
+It is worth noting that we have to wrap the Jacobian function of Tensorflow with the @tf.function decorator to speed up the computation by running in graph mode instead of eager mode. The results are in Table~\ref{tab:exp-1}
+
+\begin{table}[t]
+    \centering
+    \caption{Dense layer results.}\label{tab:exp-1}
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{ll}
+    \toprule
+                       & Runtime           \\
+    \midrule
+    Tensorflow (eager) & 0.20787 (0.03954) \\
+    Tensorflow (graph) & 0.00139 (0.00369) \\
+    PyTorch            & 0.00062 (0.00022) \\
+    \bottomrule
+    \end{tabular}%
+    }
+    \end{table}
+
+\bibliographystyle{plain}
+\bibliography{ref}
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
