@@ -1,0 +1,77 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{tokui2015chainer}
+\citation{NEURIPS2019_bdbca288}
+\citation{45381}
+\citation{paszke2017automatic}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{paszke2017automatic}
+\citation{NEURIPS2019_bdbca288}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Problem Definition}{2}{section.2}\protected@file@percent }
+\newlabel{sec:problem-definition}{{2}{2}{Problem Definition}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Autodiff in PyTorch}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Autodiff in Tensorflow}{2}{subsection.2.2}\protected@file@percent }
+\newlabel{sec:tensorflow}{{2.2}{2}{Autodiff in Tensorflow}{subsection.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Backpropagation in Deep Learning}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Experiments}{2}{section.3}\protected@file@percent }
+\newlabel{sec-experiment}{{3}{2}{Experiments}{section.3}{}}
+\citation{NEURIPS2019_bdbca288}
+\citation{deng2012mnist}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Compute Gradients of MLP}{3}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:exp-1}{{3.1}{3}{Compute Gradients of MLP}{subsection.3.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Experiment Setup}{3}{subsubsection.3.1.1}\protected@file@percent }
+\newlabel{eq:MLP_layer}{{1}{3}{Experiment Setup}{equation.3.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Eager execution}{3}{subsubsection.3.1.2}\protected@file@percent }
+\newlabel{par:eager}{{3.1.2}{3}{Eager execution}{subsubsection.3.1.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The python code of PyTorch's forward and backward pass. The codes for measuring the execution time have been removed.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:pytorch-eager}{{1}{3}{The python code of PyTorch's forward and backward pass. The codes for measuring the execution time have been removed}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The python code of TensorFlow's forward and backward pass. The codes for measuring the execution time have been removed.}}{3}{figure.2}\protected@file@percent }
+\newlabel{fig:tensorflow-eager}{{2}{3}{The python code of TensorFlow's forward and backward pass. The codes for measuring the execution time have been removed}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3}Graph execution}{3}{subsubsection.3.1.3}\protected@file@percent }
+\newlabel{par:graph}{{3.1.3}{3}{Graph execution}{subsubsection.3.1.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Experiment results in \emph  {eager} mode. The execution time is measured in $\mu s$. The same experiment is run for five trials and the mean and std is reported.}}{4}{table.1}\protected@file@percent }
+\newlabel{tab:exp-1-eager}{{1}{4}{Experiment results in \emph {eager} mode. The execution time is measured in $\mu s$. The same experiment is run for five trials and the mean and std is reported}{table.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Large initial execution time}{4}{paragraph*.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The visualization of large initial execution time observed in TensorFlow function in graph mode(\textbf  {left}) and scripted PyTorch model(\textbf  {right})}}{4}{figure.3}\protected@file@percent }
+\newlabel{fig:large-init}{{3}{4}{The visualization of large initial execution time observed in TensorFlow function in graph mode(\textbf {left}) and scripted PyTorch model(\textbf {right})}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.4}Computation Graph Analysis}{4}{subsubsection.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Computation graph of PyTorch}{4}{paragraph*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Computation graph of TensorFlow}{4}{paragraph*.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Experiment results in \emph  {graph} mode. The execution time is measured in $\mu s$. The same experiment is run for five trials and the mean and std is reported. The improvement column represents the degree of improvement when transitioning from eager mode to graph (script) mode.}}{5}{table.2}\protected@file@percent }
+\newlabel{tab:exp-1-graph}{{2}{5}{Experiment results in \emph {graph} mode. The execution time is measured in $\mu s$. The same experiment is run for five trials and the mean and std is reported. The improvement column represents the degree of improvement when transitioning from eager mode to graph (script) mode}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Compute the Jacobian of Different Layers}{5}{subsection.3.2}\protected@file@percent }
+\newlabel{exp-2}{{3.2}{5}{Compute the Jacobian of Different Layers}{subsection.3.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Experiment results.}}{5}{table.3}\protected@file@percent }
+\newlabel{tab:exp-1}{{3}{5}{Experiment results}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The computation graph of the 512-MLP model generated by \texttt  {torchviz} library.}}{6}{figure.4}\protected@file@percent }
+\newlabel{fig:pt-computation-graph}{{4}{6}{The computation graph of the 512-MLP model generated by \texttt {torchviz} library}{figure.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{6}{section.4}\protected@file@percent }
+\newlabel{sec-conclusion}{{4}{6}{Conclusion}{section.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The computation graph of the 512-MLP model generated by the official TensorFlow library.}}{6}{figure.5}\protected@file@percent }
+\newlabel{fig:pt-computation-graph}{{5}{6}{The computation graph of the 512-MLP model generated by the official TensorFlow library}{figure.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Experiment results.}}{6}{table.4}\protected@file@percent }
+\newlabel{tab:exp-1}{{4}{6}{Experiment results}{table.4}{}}
+\bibstyle{plain}
+\bibdata{ref}
+\bibcite{45381}{1}
+\bibcite{deng2012mnist}{2}
+\bibcite{paszke2017automatic}{3}
+\bibcite{NEURIPS2019_bdbca288}{4}
+\bibcite{tokui2015chainer}{5}
+\gdef \@abspage@last{7}
